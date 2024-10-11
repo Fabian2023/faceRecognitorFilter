@@ -56,7 +56,7 @@ function App() {
 
         faceapi.draw.drawDetections(canvasRef.current, resized);
         faceapi.draw.drawFaceLandmarks(canvasRef.current, resized);
-        faceapi.draw.drawFaceExpressions(canvasRef.current, resized);
+      faceapi.draw.drawFaceExpressions(canvasRef.current, resized);
 
         // Si se detectó una cara, dibuja el casco
         if (resized.length > 0 && helmetImageRef.current) {
@@ -65,8 +65,8 @@ function App() {
           const jaw = landmarks.getJawOutline(); // Contorno de la mandíbula para ajustar el tamaño del casco
 
           // Ajustes para aumentar el tamaño del casco
-  const helmetWidthFactor = 1; // Aumenta el ancho del casco un 50%
-  const helmetHeightFactor = 0.65; // Aumenta la altura del casco un 50%
+  const helmetWidthFactor = 1.9; // Aumenta el ancho del casco un 50%
+  const helmetHeightFactor = 0.90; // Aumenta la altura del casco un 50%
 
   // Definir las coordenadas para posicionar el casco
   const helmetWidth = (jaw[16].x - jaw[0].x) * helmetWidthFactor; // Ancho aumentado en un 50%
@@ -76,7 +76,7 @@ function App() {
           ctx.drawImage(
             helmetImageRef.current,
             forehead.x - helmetWidth / 2, // Centrar en la cabeza
-            forehead.y - helmetHeight * 1.5, // Posicionarlo un poco arriba de la nariz
+            forehead.y - helmetHeight * 0.85, // Posicionarlo un poco arriba de la nariz
             helmetWidth,
             helmetHeight
           );
