@@ -5,7 +5,9 @@
 
 .appcanvas{
   position: absolute;
-  top: 100px
+  top: 145px;
+  width:850px;
+  height: 600px;
 }
 
 .myapp{
