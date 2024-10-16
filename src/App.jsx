@@ -24,8 +24,8 @@ function App() {
     Promise.all([
       faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
       faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-      faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-      faceapi.nets.faceExpressionNet.loadFromUri('/models'),
+      // faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
+      // faceapi.nets.faceExpressionNet.loadFromUri('/models'),
     ]).then(() => {
       faceMyDetect();
     });
@@ -38,7 +38,7 @@ function App() {
         const detections = await faceapi
           .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
           .withFaceLandmarks()
-          .withFaceExpressions();
+          //.withFaceExpressions();
 
         // Limpiar el canvas antes de dibujar
         const ctx = canvasRef.current.getContext('2d');
@@ -54,9 +54,9 @@ function App() {
           height: 650,
         });
 
-        faceapi.draw.drawDetections(canvasRef.current, resized);
-        faceapi.draw.drawFaceLandmarks(canvasRef.current, resized);
-      faceapi.draw.drawFaceExpressions(canvasRef.current, resized);
+        //faceapi.draw.drawDetections(canvasRef.current, resized);
+        //faceapi.draw.drawFaceLandmarks(canvasRef.current, resized);
+      //faceapi.draw.drawFaceExpressions(canvasRef.current, resized);
 
         // Si se detectó una cara, dibuja el casco
         if (resized.length > 0 && helmetImageRef.current) {
